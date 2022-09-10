@@ -51,6 +51,12 @@ Brainfuck.prototype.printValue = function () {
   process.stdout.write(String.fromCharCode(this.memory[this.ptr]));
 };
 
+Brainfuck.prototype.storingValue = function () {
+  let buffer = Buffer.alloc(1);
+  fs.readSync(0, buffer, 0, 1);
+  this.memory[this.ptr] = buffer.toString("utf8").charCodeAt(0);
+};
+
 Brainfuck.prototype.jump = function (command) {
   if (command === "[" && this.memory[this.ptr] === 0) {
     this.pc = this.jumpTo[this.pc];
@@ -70,6 +76,7 @@ Brainfuck.prototype.run = function () {
     else if (command === "+") this.increaseValue();
     else if (command === "-") this.decreaseValue();
     else if (command === ".") this.printValue();
+    else if (command === ",") this.storingValue();
     else if (command === "[" || command === "]") this.jump(command);
 
     this.pc += 1;

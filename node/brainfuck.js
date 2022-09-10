@@ -59,25 +59,6 @@ Brainfuck.prototype.jump = function (command) {
   }
 };
 
-Brainfuck.prototype.loopEnd = function () {
-  if (this.memory[this.ptr] !== 0) {
-    let depth = 0;
-    while (this.pc > 0) {
-      const command = this.code[this.pc];
-
-      if (command === "]") depth += 1;
-      else if (command === "[") {
-        depth -= 1;
-        if (depth === 0) break;
-      }
-
-      this.pc -= 1;
-    }
-
-    if (depth !== 0) throw new Error("Syntax error");
-  }
-};
-
 Brainfuck.prototype.run = function () {
   this.preprocess();
 

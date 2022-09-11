@@ -18,6 +18,17 @@ The eight language commands each consist of a single character:
 | [       | If the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command. |
 | ]       | If the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command. |
 
+## Sample code
+### Hello, World!
+```brainfuck
+++++++++++
+[>+++++++>++++++++++>+++>+<<<<-]
+>++.>+.+++++++..+++.>++++++++++++++.------------.<<+++++++++++++++.>.+++.------.--------.>+.
+```
+### And more
+* [Fibonacci numbers](http://progopedia.com/example/fibonacci/14/)
+* [Factorial](http://progopedia.com/example/factorial/18/)
+
 ## Languages
 * [JavaScript (Node)](./node)
 

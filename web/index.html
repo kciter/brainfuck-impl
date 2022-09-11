@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brainfuck</title>
+    <script src="./brainfuck.js"></script>
+  </head>
+
+  <body>
+    <h1>Brainfuck</h1>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Brainfuck">Brainfuck</a> is an
+      esoteric programming language created in 1993 by Urban Müller, and
+      notable for its extreme minimalism.
+    </p>
+    <p>
+      This is a simple interpreter for Brainfuck written in JavaScript.
+    </p>
+    <p>
+      <h2>Code</h2>
+      <textarea id="code" rows="10" cols="80">++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++++++++++++++.------------.<<+++++++++++++++.>.+++.------.--------.>+.</textarea>
+      <div>
+        <button id="run">Run</button>
+      </div>
+    </p>
+    <p>
+      <h2>Result</h2>
+      <textarea id="result" readonly rows="10" cols="80"></textarea>
+    </p>
+
+    <script>
+      document.getElementById('run').addEventListener('click', function() {
+        var code = document.getElementById('code').value;
+        var result = document.getElementById('result');
+        window.bf.load(code);
+        window.bf.run()
+        result.value = window.bf.result;
+      });
+    </script>
+  </body>
+</html>

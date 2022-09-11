@@ -31,6 +31,7 @@ The eight language commands each consist of a single character:
 
 ## Languages
 * [JavaScript (Node)](./node)
+* [JavaScript (Browser)](./web)
 
 ## License
 MIT License.
